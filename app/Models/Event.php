@@ -25,7 +25,7 @@ class Event extends Model
     /**
      * Get the comments for the blog post.
      */
-    public function workshop()
+    public function workshops()
     {
         return $this->hasMany(Workshop::class,'event_id');
     }
