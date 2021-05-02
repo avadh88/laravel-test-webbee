@@ -180,7 +180,7 @@ class EventsController extends BaseController
 
     public function getFutureEventsWithWorkshops() {
         $events = Event::with('workshop')->whereHas('Workshop', function($query){
-            $query->where('start','>=', date('Y-m-d').' 00:00:00');
+            $query->where('start','>=', date('Y-m-d').' 00:00:00')->groupBy('event_id');
        })->get();
        
        return $events->toJson();
